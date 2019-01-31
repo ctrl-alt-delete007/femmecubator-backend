@@ -1,4 +1,4 @@
-class MembersSerializer < ActiveModel::Serializer
+class MemberSerializer < ActiveModel::Serializer
   attributes :id, :first_name, :last_name, :email
   has_many :coupons
   has_many :likes

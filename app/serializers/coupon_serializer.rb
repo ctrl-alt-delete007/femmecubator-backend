@@ -1,4 +1,4 @@
-class CouponsSerializer < ActiveModel::Serializer
+class CouponSerializer < ActiveModel::Serializer
   attributes :id, :coupon_code, :sponsor, :description, :expiration
   belongs_to :member
   has_many: likes
