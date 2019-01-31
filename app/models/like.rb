@@ -1,4 +1,4 @@
 class Like < ApplicationRecord
-    belongs_to :members
-    belongs_to :coupons
+    belongs_to :member
+    belongs_to :coupon
 end

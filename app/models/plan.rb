@@ -1,4 +1,4 @@
 class Plan < ApplicationRecord
-    belongs_to :members
-    belongs_to :events
+    belongs_to :member
+    belongs_to :event
 end
