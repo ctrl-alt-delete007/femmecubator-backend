@@ -10,6 +10,13 @@ class Api::V1::AuthController < ApplicationController
         end
     end
 
+    def show
+        # byebug
+        email = decoded_token[0]
+        @member = Member.find_by(email: email)
+        render json: { membership: MemberSerializer.new(@member) }
+    end
+
     private
 
     def auth_params

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :events
       resources :likes
       resources :plans
+      get '/current_user', to: 'auth#show'
       post '/login', to: 'auth#create'
     end
   end

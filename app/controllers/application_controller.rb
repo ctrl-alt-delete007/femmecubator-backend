@@ -21,8 +21,8 @@ class ApplicationController < ActionController::API
     
       def current_user 
         if decoded_token
-          email = decoded_token[0]['email']
-          @user = User.find_by(email: email)
+          email = decoded_token[0]
+          @member = Member.find_by(email: email)
         else
           nil
         end
