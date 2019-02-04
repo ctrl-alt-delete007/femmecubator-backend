@@ -1,11 +1,11 @@
 class Api::V1::CouponsController < ApplicationController
     def index
         @coupons = Coupon.all
-        render json: CouponSerializer.new(@coupons)
+        render json: {coupons: CouponSerializer.new(@coupons)}
     end
     def create
         @coupon = Coupon.create(coupons_params)
-        render json: CouponSerializer.new(@coupon)
+        render json: {coupon: CouponSerializer.new(@coupon)}
     end
 
     private
