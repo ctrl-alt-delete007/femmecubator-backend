@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::API
     before_action :authorized
     def issue_token(payload)
-        JWT.encode(payload, Date.today.strftime('%Y-%m-%d'))
-      end 
+        # JWT.encode(payload, Date.today.strftime('%Y-%m-%d'))
+        JWT.encode(payload, '$ec123t')
+    end 
     
       def auth_header
         request.headers['Authorization']
@@ -12,7 +13,8 @@ class ApplicationController < ActionController::API
         if auth_header
           token = auth_header
           begin 
-            JWT.decode(token, Date.today.strftime('%Y-%m-%d'), true, algorithm: 'HS256')
+            # JWT.decode(token, Date.today.strftime('%Y-%m-%d'), true, algorithm: 'HS256')
+            JWT.decode(token, '$ec123t', true, algorithm: 'HS256')
           rescue JWT::DecodeError
             nil 
           end 
