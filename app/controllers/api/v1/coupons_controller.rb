@@ -4,6 +4,7 @@ class Api::V1::CouponsController < ApplicationController
         @coupons = Coupon.all
         render json: {coupons: @coupons}
     end
+    
     def create
         @coupon = Coupon.create(coupons_params)
         render json: {coupon: CouponSerializer.new(@coupon)}
