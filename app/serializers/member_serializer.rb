@@ -3,8 +3,8 @@ class MemberSerializer < ActiveModel::Serializer
   
   has_many :coupons
   has_many :likes
-  has_many :coupons, through: :likes
+  # has_many :coupons, through: :likes
   has_many :wishlists
-  has_many :coupons, through: :wishlists
+  # has_many :coupons, through: :wishlists
   
 end

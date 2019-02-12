@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :plans
       get '/current_user', to: 'auth#show'
       post '/login', to: 'auth#create'
+      post '/members/:id/wishlists', to: 'wishlists#create'
     end
   end
 
