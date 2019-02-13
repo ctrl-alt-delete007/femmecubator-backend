@@ -14,7 +14,10 @@ class Api::V1::MembersController < ApplicationController
         end
     end
     def update
-        byebug
+        @member = Member.find(params[:user_info][:id])
+        @member.update(members_params)
+        @member.save
+        render json: { member: @member}
     end
 
     private
