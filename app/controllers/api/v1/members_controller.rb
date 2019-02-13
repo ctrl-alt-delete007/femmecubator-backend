@@ -13,6 +13,9 @@ class Api::V1::MembersController < ApplicationController
             render json: { error: 'Registration failed' }, status: :not_acceptable
         end
     end
+    def update
+        byebug
+    end
 
     private
     def members_params
