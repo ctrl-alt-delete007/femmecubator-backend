@@ -1,6 +1,5 @@
 class Api::V1::CouponsController < ApplicationController
     def index
-        # byebug
         @coupons = Coupon.all
         render json: {coupons: @coupons}
     end
