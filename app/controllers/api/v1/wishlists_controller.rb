@@ -4,6 +4,8 @@ class Api::V1::WishlistsController < ApplicationController
         render json: { wishlist: @wishlist }
     end
 
+    
+
     private
     def wishlists_params
         params.require(:wishlist).permit(:member_id, :coupon_id)
