@@ -17,7 +17,8 @@ class Api::V1::MembersController < ApplicationController
         @member = Member.find(params[:user_info][:id])
         @member.update(members_params)
         @member.save
-        render json: { member: @member}
+        @token = issue_token({ email: @member.email })
+        render json: { member: @member, jwt: @token }
     end
 
     private
