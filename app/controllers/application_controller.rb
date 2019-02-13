@@ -24,7 +24,7 @@ class ApplicationController < ActionController::API
       def current_user 
         if decoded_token
           email = decoded_token[0]
-          @member = Member.find_by(email: email)
+          @member = Member.find_by(email: email["email"])
         else
           nil
         end
@@ -35,6 +35,7 @@ class ApplicationController < ActionController::API
       end
     
       def authorized
+        # byebug
         if !logged_in?
           render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
         end

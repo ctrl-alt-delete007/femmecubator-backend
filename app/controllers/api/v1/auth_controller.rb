@@ -13,7 +13,7 @@ class Api::V1::AuthController < ApplicationController
     def show
         # byebug
         email = decoded_token[0]
-        @member = Member.find_by(email: email)
+        @member = Member.find_by(email: email["email"])
         render json: { membership: MemberSerializer.new(@member) }
     end
 
