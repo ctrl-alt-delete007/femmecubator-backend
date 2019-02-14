@@ -5,12 +5,13 @@ class Api::V1::CouponsController < ApplicationController
     end
     
     def create
+        # byebug
         @coupon = Coupon.create(coupons_params)
         render json: {coupon: CouponSerializer.new(@coupon)}
     end
 
     private
     def coupons_params
-        params.require(:coupon_info).permit(:coupon_code, :sponsor, :description, :expiration, :member_id)
+        params.require(:coupon_info).permit(:coupon_code, :sponsor, :description, :expiration, :creator_id)
     end
 end
