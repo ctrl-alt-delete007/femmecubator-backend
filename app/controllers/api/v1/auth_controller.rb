@@ -7,7 +7,7 @@ class Api::V1::AuthController < ApplicationController
             @token = issue_token({ email: @member.email})
             render json: { member: MemberSerializer.new(@member), jwt: @token }, status: :accepted
         else
-            render json: { message: 'Invalid username or password' }, status: :unauthorized
+            render json: { loginData: auth_params[:email], message: 'Invalid username or password' }, status: :unauthorized
         end
     end
 

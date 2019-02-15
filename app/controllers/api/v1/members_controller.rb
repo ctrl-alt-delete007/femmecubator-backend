@@ -10,7 +10,8 @@ class Api::V1::MembersController < ApplicationController
             @token = issue_token({ email: @member.email})
             render json: { member: MemberSerializer.new(@member), jwt: @token }, status: :created
         else
-            render json: { error: 'Registration failed' }, status: :not_acceptable
+            @registrationData = { first_name: members_params[:first_name], last_name: members_params[:last_name], email: members_params[:email]}
+            render json: { member: @registrationData, error: 'Registration failed' }, status: :not_acceptable
         end
     end
     def update
