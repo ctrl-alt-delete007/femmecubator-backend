@@ -15,11 +15,12 @@ class Api::V1::MembersController < ApplicationController
         end
     end
     def update
-        @member = Member.find(params[:user_info][:id])
+        # byebug
+        @member = Member.find(params[:user_info][:member_id])
         @member.update(members_params)
         @member.save
         @token = issue_token({ email: @member.email })
-        render json: { member: @member, jwt: @token }
+        render json: { member: MemberSerializer.new(@member), jwt: @token }
     end
 
     private
